@@ -17,6 +17,8 @@
 		74DF2B052C4ABD5600D48210 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF2B042C4ABD5600D48210 /* TimerViewModel.swift */; };
 		74DF2B082C4AC29700D48210 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF2B072C4AC29700D48210 /* Keys.swift */; };
 		74DF2B0A2C4AD2D600D48210 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF2B092C4AD2D600D48210 /* UserDefaultsManager.swift */; };
+		74DF2B0F2C4ADC1200D48210 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF2B0E2C4ADC1200D48210 /* Notifications.swift */; };
+		74DF2B252C4AF1DF00D48210 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74DF2B232C4AF1DF00D48210 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,9 @@
 		74DF2B042C4ABD5600D48210 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		74DF2B072C4AC29700D48210 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		74DF2B092C4AD2D600D48210 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		74DF2B0E2C4ADC1200D48210 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		74DF2B242C4AF1DF00D48210 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		74DF2B262C4AF1EF00D48210 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +68,7 @@
 		740D63A32C496F3500F5DB39 /* PomidoroApp */ = {
 			isa = PBXGroup;
 			children = (
+				74DF2B0D2C4ADBAB00D48210 /* Notifications */,
 				74DF2B062C4AC28C00D48210 /* Utils */,
 				74DF2AF52C4AB82200D48210 /* ViewModel */,
 				74DF2AFF2C4AB86000D48210 /* Model */,
@@ -70,6 +76,7 @@
 				740D63A42C496F3500F5DB39 /* PomidoroAppApp.swift */,
 				740D63A82C496F3700F5DB39 /* Assets.xcassets */,
 				740D63AA2C496F3700F5DB39 /* Preview Content */,
+				74DF2B232C4AF1DF00D48210 /* Localizable.strings */,
 			);
 			path = PomidoroApp;
 			sourceTree = "<group>";
@@ -117,6 +124,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		74DF2B0D2C4ADBAB00D48210 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				74DF2B0E2C4ADC1200D48210 /* Notifications.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,6 +174,7 @@
 			knownRegions = (
 				en,
 				Base,
+				pl,
 			);
 			mainGroup = 740D63982C496F3500F5DB39;
 			productRefGroup = 740D63A22C496F3500F5DB39 /* Products */;
@@ -176,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				740D63AC2C496F3700F5DB39 /* Preview Assets.xcassets in Resources */,
+				74DF2B252C4AF1DF00D48210 /* Localizable.strings in Resources */,
 				740D63A92C496F3700F5DB39 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,6 +207,7 @@
 				740D63A52C496F3500F5DB39 /* PomidoroAppApp.swift in Sources */,
 				74DF2AFB2C4AB85E00D48210 /* ContentView.swift in Sources */,
 				74DF2B032C4AB91100D48210 /* TimerMode.swift in Sources */,
+				74DF2B0F2C4ADC1200D48210 /* Notifications.swift in Sources */,
 				74DF2B012C4AB8D400D48210 /* ActualMode.swift in Sources */,
 				74DF2B082C4AC29700D48210 /* Keys.swift in Sources */,
 				74DF2B052C4ABD5600D48210 /* TimerViewModel.swift in Sources */,
@@ -200,12 +218,25 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		74DF2B232C4AF1DF00D48210 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74DF2B242C4AF1DF00D48210 /* en */,
+				74DF2B262C4AF1EF00D48210 /* pl */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		740D63AD2C496F3700F5DB39 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -269,6 +300,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

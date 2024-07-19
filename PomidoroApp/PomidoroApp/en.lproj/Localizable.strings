@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  PomidoroApp
+
+  Created by Jan Kazubski on 19/07/2024.
+  
+*/
+
+"start" = "Start";
+"stop" = "Stop";
+"resume" = "Resume";
+"reset" = "Reset";
+"notification_title_break_done" = "Break over!";
+"notification_title_work_done" = "Work over!";
+"notification_body_break_done" = "Your break has just ended. Start the timer for work.";
+"notification_body_work_done" = "Your work time has just ended. Start the timer for your break.";
+"notifications_disabled_click_here" = "Click here";
+"notifications_disabled_text" = " to enable notifications.";

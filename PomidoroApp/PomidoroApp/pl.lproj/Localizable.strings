@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  PomidoroApp
+
+  Created by Jan Kazubski on 19/07/2024.
+  
+*/
+
+"start" = "Start";
+"stop" = "Stop";
+"resume" = "Wznów";
+"reset" = "Zresetuj";
+"notification_title_break_done" = "Koniec przerwy!";
+"notification_title_work_done" = "Koniec pracy!";
+"notification_body_break_done" = "Twoja przerwa właśnie się skończyła. Włącz stoper na czas pracy.";
+"notification_body_work_done" = "Czas twojej pracy właśnie się skończył. Włącz stoper na czas przerwy.";
+"notifications_disabled_click_here" = "Kliknij tutaj";
+"notifications_disabled_text" = ", aby włączyć powiadomienia.";
