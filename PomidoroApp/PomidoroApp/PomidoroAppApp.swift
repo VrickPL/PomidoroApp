@@ -9,6 +9,10 @@ import SwiftUI
 
 @main
 struct PomidoroAppApp: App {
+    init() {
+        registerUserDefaults()
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()
