@@ -20,12 +20,6 @@ class TimerViewModel: ObservableObject {
         startTimer()
     }
 
-    func skip() {
-        stopTimer()
-        changeMode()
-        resetSecondsRemaining()
-    }
-
     func pause() {
         timerMode = .Paused
         stopTimer()
@@ -52,6 +46,7 @@ class TimerViewModel: ObservableObject {
 
     private func startTimer() {
         timerMode = .Running
+        Notifications.scheduleNotification(seconds: secondsRemaining, title: mode.getNotificationTitleString(), body: mode.getNotificationBodyString())
 
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             switch self.timerMode {
@@ -71,6 +66,8 @@ class TimerViewModel: ObservableObject {
     }
 
     private func stopTimer() {
+        Notifications.stopAllNotifications()
+
         timer?.invalidate()
         timer = nil
     }

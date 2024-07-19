@@ -22,11 +22,11 @@ struct TimerView: View {
             }.padding()
             
             switch viewModel.timerMode {
-            case .Ready:
+            case .Ready, .Finished:
                 Button {
                     viewModel.start()
                 } label: {
-                    Text("Start")
+                    Text("start")
                         .padding()
                         .background(.white)
                         .cornerRadius(10)
@@ -35,7 +35,7 @@ struct TimerView: View {
                 Button {
                     viewModel.pause()
                 } label: {
-                    Text("Stop")
+                    Text("stop")
                         .padding()
                         .background(.white)
                         .cornerRadius(10)
@@ -44,7 +44,7 @@ struct TimerView: View {
                 Button {
                     viewModel.resume()
                 } label: {
-                    Text("Resume")
+                    Text("resume")
                         .padding()
                         .background(.white)
                         .cornerRadius(10)
@@ -53,21 +53,11 @@ struct TimerView: View {
                 Button {
                     viewModel.reset()
                 } label: {
-                    Text("Reset")
+                    Text("reset")
                         .padding()
                         .background(.white)
                         .cornerRadius(10)
                 }
-            case .Finished:
-                
-                    Button {
-                        viewModel.start()
-                    } label: {
-                        Text("Start")
-                            .padding()
-                            .background(.white)
-                            .cornerRadius(10)
-                    }
             }
         }
     }
