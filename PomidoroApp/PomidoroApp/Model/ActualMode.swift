@@ -7,24 +7,32 @@
 
 import Foundation
 
-enum ActualMode {
-    case Break
-    case Work
+enum ActualMode: String {
+    case breakTime = "breakTime"
+    case workTime = "workTime"
+    
+    static func fromString(_ name: String?) -> ActualMode? {
+        return if let name = name {
+            ActualMode(rawValue: name.lowercased())
+        } else {
+            nil
+        }
+    }
     
     func getNotificationTitleString() -> String {
         switch self {
-        case .Break:
+        case .breakTime:
             "notification_title_break_done"
-        case .Work:
+        case .workTime:
             "notification_title_work_done"
         }
     }
     
     func getNotificationBodyString() -> String {
         switch self {
-        case .Break:
+        case .breakTime:
             "notification_body_break_done"
-        case .Work:
+        case .workTime:
             "notification_body_work_done"
         }
     }

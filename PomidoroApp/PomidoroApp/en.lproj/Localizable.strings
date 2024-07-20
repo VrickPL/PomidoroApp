@@ -8,6 +8,7 @@
 
 "start" = "Start";
 "stop" = "Stop";
+"skip" = "Skip";
 "resume" = "Resume";
 "reset" = "Reset";
 "notification_title_break_done" = "Break over!";
