@@ -21,8 +21,10 @@ struct TimerView: View {
                     .foregroundColor(.white)
             }.padding()
             
+            Text(viewModel.mode.rawValue)
+            
             switch viewModel.timerMode {
-            case .Ready, .Finished:
+            case .ready, .finished:
                 Button {
                     viewModel.start()
                 } label: {
@@ -31,7 +33,7 @@ struct TimerView: View {
                         .background(.white)
                         .cornerRadius(10)
                 }
-            case .Running:
+            case .running:
                 Button {
                     viewModel.pause()
                 } label: {
@@ -40,7 +42,16 @@ struct TimerView: View {
                         .background(.white)
                         .cornerRadius(10)
                 }
-            case .Paused:
+
+                Button {
+                    viewModel.skip()
+                } label: {
+                    Text("skip")
+                        .padding()
+                        .background(.white)
+                        .cornerRadius(10)
+                }
+            case .paused:
                 Button {
                     viewModel.resume()
                 } label: {

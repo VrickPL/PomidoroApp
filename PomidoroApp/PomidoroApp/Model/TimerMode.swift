@@ -7,9 +7,17 @@
 
 import Foundation
 
-enum TimerMode {
-    case Ready
-    case Running
-    case Paused
-    case Finished
+enum TimerMode: String {
+    case ready = "ready"
+    case running = "running"
+    case paused = "paused"
+    case finished = "finished"
+
+    static func fromString(_ name: String?) -> TimerMode? {
+        return if let name = name {
+            TimerMode(rawValue: name.lowercased())
+        } else {
+            nil
+        }
+    }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct PomidoroAppApp: App {
     init() {
-        registerUserDefaults()
+        UserDefaultsManager.register()
     }
 
     var body: some Scene {
