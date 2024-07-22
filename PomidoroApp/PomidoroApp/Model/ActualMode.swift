@@ -13,7 +13,7 @@ enum ActualMode: String {
     
     static func fromString(_ name: String?) -> ActualMode? {
         return if let name = name {
-            ActualMode(rawValue: name.lowercased())
+            ActualMode(rawValue: name)
         } else {
             nil
         }

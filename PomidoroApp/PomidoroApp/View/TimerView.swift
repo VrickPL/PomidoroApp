@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TimerView: View {
-    @ObservedObject private var viewModel = TimerViewModel()
+    private var viewModel = TimerViewModel()
     
     var body: some View {
         VStack {

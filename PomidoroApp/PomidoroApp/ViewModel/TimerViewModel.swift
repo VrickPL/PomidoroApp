@@ -8,11 +8,12 @@
 import Foundation
 import Observation
 
-class TimerViewModel: ObservableObject {
-    @Published var secondsRemaining: TimeInterval = 0
+@Observable
+class TimerViewModel {
+    var secondsRemaining: TimeInterval = 0
 
-    @Published var mode: ActualMode
-    @Published var timerMode: TimerMode
+    var mode: ActualMode
+    var timerMode: TimerMode
 
     private var timer: Timer?
 
@@ -108,7 +109,7 @@ class TimerViewModel: ObservableObject {
                 title: mode.getNotificationTitleString(),
                 body: mode.getNotificationBodyString()
             )
-
+            
             if self.secondsRemaining > 1 {
                 self.secondsRemaining -= 1
             }

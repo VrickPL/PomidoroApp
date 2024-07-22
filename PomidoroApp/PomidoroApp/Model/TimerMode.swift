@@ -15,7 +15,7 @@ enum TimerMode: String {
 
     static func fromString(_ name: String?) -> TimerMode? {
         return if let name = name {
-            TimerMode(rawValue: name.lowercased())
+            TimerMode(rawValue: name)
         } else {
             nil
         }

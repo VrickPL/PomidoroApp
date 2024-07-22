@@ -31,8 +31,8 @@ class Notifications {
         let notificationCentre = UNUserNotificationCenter.current()
         
         let content = UNMutableNotificationContent()
-        content.title = title
-        content.body = body
+        content.title = NSLocalizedString(title, comment: "")
+        content.body = NSLocalizedString(body, comment: "")
         content.sound = .default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
