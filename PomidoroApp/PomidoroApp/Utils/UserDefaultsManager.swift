@@ -8,52 +8,96 @@
 import Foundation
 
 class UserDefaultsManager {
-    static var workTime: Int { UserDefaults.standard.integer(forKey: Keys.WORK_TIME) }
-    static var breakTime: Int { UserDefaults.standard.integer(forKey: Keys.BREAK_TIME) }
-    static var startDate: Date? { UserDefaults.standard.object(forKey: Keys.TIMER_START_DATE) as? Date }
-    static var endDate: Date? { UserDefaults.standard.object(forKey: Keys.TIMER_END_DATE) as? Date }
-    static var mode: ActualMode? { ActualMode.fromString(UserDefaults.standard.string(forKey: Keys.MODE)) }
-    static var timerMode: TimerMode? { TimerMode.fromString(UserDefaults.standard.string(forKey: Keys.TIMER_MODE)) }
-    static var secondsLeftAfterPause: Int { UserDefaults.standard.integer(forKey: Keys.SECONDS_LEFT_AFTER_PAUSE) }
+    static let defaultWorkTime = 1500
+    static let defaultBreakTime = 300
+
+    private struct Keys {
+        static let TIMER_START_DATE = "timer_start_date"
+        static let TIMER_END_DATE = "timer_end_date"
+        static let MODE = "mode"
+        static let TIMER_MODE = "timer_mode"
+        static let SECONDS_LEFT_AFTER_PAUSE = "seconds_left_after_pause"
+    }
+
+    static var workTime: Int {
+        return userDefaults.integer(forKey: AppStorageKeys.WORK_TIME)
+    }
+
+    static var breakTime: Int {
+        return userDefaults.integer(forKey: AppStorageKeys.BREAK_TIME)
+    }
+
+    static var startDate: Date? {
+        return userDefaults.object(forKey: Keys.TIMER_START_DATE) as? Date
+    }
+
+    static var endDate: Date? {
+        return userDefaults.object(forKey: Keys.TIMER_END_DATE) as? Date
+    }
+
+    static var mode: ActualMode? {
+        guard let modeString = userDefaults.string(forKey: Keys.MODE) else {
+            return nil
+        }
+        return ActualMode.fromString(modeString)
+    }
+
+    static var timerMode: TimerMode? {
+        guard let timerModeString = userDefaults.string(forKey: Keys.TIMER_MODE)
+        else { return nil }
+        return TimerMode.fromString(timerModeString)
+    }
+
+    static var secondsLeftAfterPause: Int {
+        return userDefaults.integer(forKey: Keys.SECONDS_LEFT_AFTER_PAUSE)
+    }
 
     static func register() {
-        let userDefaults = UserDefaults.standard
-        let defaultValues = [
-            Keys.WORK_TIME: 15,
-            Keys.BREAK_TIME: 8
-        ]
-        userDefaults.register(defaults: defaultValues)
+        if workTime == 0 {
+            setWorkTime(seconds: defaultWorkTime)
+        }
+        if breakTime == 0 {
+            setBreakTime(seconds: defaultBreakTime)
+        }
     }
-    
+
+    static func setWorkTime(seconds: Int) {
+        userDefaults.set(seconds, forKey: AppStorageKeys.WORK_TIME)
+    }
+
+    static func setBreakTime(seconds: Int) {
+        userDefaults.set(seconds, forKey: AppStorageKeys.BREAK_TIME)
+    }
+
     static func setDates(startDate: Date, secondsLeft: TimeInterval) {
-        let userDefaults = UserDefaults.standard
         userDefaults.set(startDate, forKey: Keys.TIMER_START_DATE)
-        userDefaults.set(startDate.addingTimeInterval(secondsLeft), forKey: Keys.TIMER_END_DATE)
+        userDefaults.set(
+            startDate.addingTimeInterval(secondsLeft),
+            forKey: Keys.TIMER_END_DATE)
     }
-    
+
     static func resetTimer() {
-        let userDefaults = UserDefaults.standard
         userDefaults.removeObject(forKey: Keys.TIMER_START_DATE)
         userDefaults.removeObject(forKey: Keys.TIMER_END_DATE)
     }
-    
+
     static func setMode(mode: ActualMode) {
-        let userDefaults = UserDefaults.standard
         userDefaults.set(mode.rawValue, forKey: Keys.MODE)
     }
-    
+
     static func setTimerMode(timerMode: TimerMode) {
-        let userDefaults = UserDefaults.standard
         userDefaults.set(timerMode.rawValue, forKey: Keys.TIMER_MODE)
     }
-    
+
     static func clearTimerMode() {
-        let userDefaults = UserDefaults.standard
         userDefaults.removeObject(forKey: Keys.TIMER_MODE)
     }
-    
+
     static func setSecondsLeftAfterPause(secondsLeft: TimeInterval) {
-        let userDefaults = UserDefaults.standard
         userDefaults.set(secondsLeft, forKey: Keys.SECONDS_LEFT_AFTER_PAUSE)
+    }
+
+    private static var userDefaults: UserDefaults {
+        return UserDefaults.standard
     }
 }

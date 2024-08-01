@@ -5,6 +5,22 @@
   Created by Jan Kazubski on 19/07/2024.
   
 */
+"general" = "General";
+
+"language" = "Langauge";
+"auto" = "Auto";
+"english" = "English";
+"polish" = "Polski";
+
+"theme" = "Theme";
+"light" = "Light";
+"dark" = "Dark";
+
+"app_author" = "Author";
+
+"work_length_time" = "Work length time";
+"break_length_time" = "Break length time";
+
 
 "start" = "Start";
 "stop" = "Stop";

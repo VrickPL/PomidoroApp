@@ -5,6 +5,22 @@
   Created by Jan Kazubski on 19/07/2024.
   
 */
+"general" = "Ogólne";
+
+"language" = "Język";
+"auto" = "Automatyczny";
+"english" = "English";
+"polish" = "Polski";
+
+"theme" = "Motyw";
+"light" = "Jasny";
+"dark" = "Ciemny";
+
+"app_author" = "Autor";
+
+"work_length_time" = "Długość pracy";
+"break_length_time" = "Długość przerwy";
+
 
 "start" = "Start";
 "stop" = "Stop";
