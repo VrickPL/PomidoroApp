@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct TimerView: View {
-    @AppStorage(AppStorageKeys.SELECTED_LANGUAGE) private var workTime: Int = UserDefaultsManager.defaultWorkTime
-    @AppStorage(AppStorageKeys.SELECTED_THEME) private var breakTime: Int = UserDefaultsManager.defaultBreakTime
+    @AppStorage(AppStorageKeys.WORK_TIME) private var workTime: Int = UserDefaultsManager.defaultWorkTime
+    @AppStorage(AppStorageKeys.BREAK_TIME) private var breakTime: Int = UserDefaultsManager.defaultBreakTime
     
     @State private var viewModel = TimerViewModel()
 
