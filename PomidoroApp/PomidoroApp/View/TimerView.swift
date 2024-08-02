@@ -8,21 +8,24 @@
 import SwiftUI
 
 struct TimerView: View {
-    private var viewModel = TimerViewModel()
+    @AppStorage(AppStorageKeys.WORK_TIME) private var workTime: Int = UserDefaultsManager.defaultWorkTime
+    @AppStorage(AppStorageKeys.BREAK_TIME) private var breakTime: Int = UserDefaultsManager.defaultBreakTime
     
+    @State private var viewModel = TimerViewModel()
+
     var body: some View {
         VStack {
             ZStack {
                 Circle().foregroundColor(.red)
-                
-                Text(viewModel.secondsRemaining.formatted)
+
+                Text(TimeCalculator(viewModel.secondsRemaining).format())
                     .bold()
                     .font(.system(size: 50))
                     .foregroundColor(.white)
             }.padding()
-            
+
             Text(viewModel.mode.rawValue)
-            
+
             switch viewModel.timerMode {
             case .ready, .finished:
                 Button {
@@ -60,7 +63,7 @@ struct TimerView: View {
                         .background(.white)
                         .cornerRadius(10)
                 }
-                
+
                 Button {
                     viewModel.reset()
                 } label: {
@@ -70,20 +73,14 @@ struct TimerView: View {
                         .cornerRadius(10)
                 }
             }
-        }
-    }
-}
-
-extension TimeInterval {
-    var formatted: String {
-        let hours = Int(self) / 3600
-        let minutes = Int(self) % 3600 / 60
-        let seconds = Int(self) % 60
-
-        return if hours > 0 {
-            String(format: "%2d:%02d:%02d", hours, minutes, seconds)
-        } else {
-            String(format: "%02d:%02d", minutes, seconds)
+        }.onChange(of: workTime) {
+            if viewModel.mode == .workTime {
+                viewModel.reset()
+            }
+        }.onChange(of: breakTime) {
+            if viewModel.mode == .breakTime {
+                viewModel.reset()
+            }
         }
     }
 }

@@ -10,12 +10,17 @@
 		740D63A52C496F3500F5DB39 /* PomidoroAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740D63A42C496F3500F5DB39 /* PomidoroAppApp.swift */; };
 		740D63A92C496F3700F5DB39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 740D63A82C496F3700F5DB39 /* Assets.xcassets */; };
 		740D63AC2C496F3700F5DB39 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 740D63AB2C496F3700F5DB39 /* Preview Assets.xcassets */; };
+		7440FCDA2C5C00000066CAF4 /* TimeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7440FCD92C5C00000066CAF4 /* TimeCalculator.swift */; };
+		74C075EA2C5BE0500046355C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C075E92C5BE0500046355C /* SettingsView.swift */; };
+		74C075ED2C5BE1310046355C /* AppStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C075EC2C5BE1310046355C /* AppStorageKeys.swift */; };
+		74C075EF2C5BE2020046355C /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C075EE2C5BE2020046355C /* Language.swift */; };
+		74C075F12C5BE2170046355C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C075F02C5BE2160046355C /* Theme.swift */; };
+		74C075F42C5BEF0A0046355C /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C075F32C5BEF0A0046355C /* TimePickerView.swift */; };
 		74DF2AFB2C4AB85E00D48210 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF2AF82C4AB85D00D48210 /* ContentView.swift */; };
 		74DF2AFC2C4AB85E00D48210 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF2AF92C4AB85D00D48210 /* TimerView.swift */; };
 		74DF2B012C4AB8D400D48210 /* ActualMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF2B002C4AB8D400D48210 /* ActualMode.swift */; };
 		74DF2B032C4AB91100D48210 /* TimerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF2B022C4AB91100D48210 /* TimerMode.swift */; };
 		74DF2B052C4ABD5600D48210 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF2B042C4ABD5600D48210 /* TimerViewModel.swift */; };
-		74DF2B082C4AC29700D48210 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF2B072C4AC29700D48210 /* Keys.swift */; };
 		74DF2B0A2C4AD2D600D48210 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF2B092C4AD2D600D48210 /* UserDefaultsManager.swift */; };
 		74DF2B0F2C4ADC1200D48210 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF2B0E2C4ADC1200D48210 /* Notifications.swift */; };
 		74DF2B252C4AF1DF00D48210 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74DF2B232C4AF1DF00D48210 /* Localizable.strings */; };
@@ -26,12 +31,17 @@
 		740D63A42C496F3500F5DB39 /* PomidoroAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomidoroAppApp.swift; sourceTree = "<group>"; };
 		740D63A82C496F3700F5DB39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		740D63AB2C496F3700F5DB39 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7440FCD92C5C00000066CAF4 /* TimeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCalculator.swift; sourceTree = "<group>"; };
+		74C075E92C5BE0500046355C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		74C075EC2C5BE1310046355C /* AppStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKeys.swift; sourceTree = "<group>"; };
+		74C075EE2C5BE2020046355C /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		74C075F02C5BE2160046355C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		74C075F32C5BEF0A0046355C /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
 		74DF2AF82C4AB85D00D48210 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		74DF2AF92C4AB85D00D48210 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		74DF2B002C4AB8D400D48210 /* ActualMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActualMode.swift; sourceTree = "<group>"; };
 		74DF2B022C4AB91100D48210 /* TimerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerMode.swift; sourceTree = "<group>"; };
 		74DF2B042C4ABD5600D48210 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
-		74DF2B072C4AC29700D48210 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		74DF2B092C4AD2D600D48210 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		74DF2B0E2C4ADC1200D48210 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		74DF2B242C4AF1DF00D48210 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -74,6 +84,7 @@
 				74DF2AFF2C4AB86000D48210 /* Model */,
 				74DF2AFA2C4AB85D00D48210 /* View */,
 				740D63A42C496F3500F5DB39 /* PomidoroAppApp.swift */,
+				74C075F22C5BE4350046355C /* Settings */,
 				740D63A82C496F3700F5DB39 /* Assets.xcassets */,
 				740D63AA2C496F3700F5DB39 /* Preview Content */,
 				74DF2B232C4AF1DF00D48210 /* Localizable.strings */,
@@ -89,6 +100,16 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		74C075F22C5BE4350046355C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				74C075EC2C5BE1310046355C /* AppStorageKeys.swift */,
+				74C075EE2C5BE2020046355C /* Language.swift */,
+				74C075F02C5BE2160046355C /* Theme.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		74DF2AF52C4AB82200D48210 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +123,8 @@
 			children = (
 				74DF2AF82C4AB85D00D48210 /* ContentView.swift */,
 				74DF2AF92C4AB85D00D48210 /* TimerView.swift */,
+				74C075E92C5BE0500046355C /* SettingsView.swift */,
+				74C075F32C5BEF0A0046355C /* TimePickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -111,6 +134,7 @@
 			children = (
 				74DF2B002C4AB8D400D48210 /* ActualMode.swift */,
 				74DF2B022C4AB91100D48210 /* TimerMode.swift */,
+				7440FCD92C5C00000066CAF4 /* TimeCalculator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -118,7 +142,6 @@
 		74DF2B062C4AC28C00D48210 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				74DF2B072C4AC29700D48210 /* Keys.swift */,
 				74DF2B092C4AD2D600D48210 /* UserDefaultsManager.swift */,
 			);
 			path = Utils;
@@ -204,14 +227,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74C075ED2C5BE1310046355C /* AppStorageKeys.swift in Sources */,
 				740D63A52C496F3500F5DB39 /* PomidoroAppApp.swift in Sources */,
 				74DF2AFB2C4AB85E00D48210 /* ContentView.swift in Sources */,
 				74DF2B032C4AB91100D48210 /* TimerMode.swift in Sources */,
+				74C075F12C5BE2170046355C /* Theme.swift in Sources */,
 				74DF2B0F2C4ADC1200D48210 /* Notifications.swift in Sources */,
 				74DF2B012C4AB8D400D48210 /* ActualMode.swift in Sources */,
-				74DF2B082C4AC29700D48210 /* Keys.swift in Sources */,
+				74C075EA2C5BE0500046355C /* SettingsView.swift in Sources */,
 				74DF2B052C4ABD5600D48210 /* TimerViewModel.swift in Sources */,
+				74C075EF2C5BE2020046355C /* Language.swift in Sources */,
+				74C075F42C5BEF0A0046355C /* TimePickerView.swift in Sources */,
 				74DF2B0A2C4AD2D600D48210 /* UserDefaultsManager.swift in Sources */,
+				7440FCDA2C5C00000066CAF4 /* TimeCalculator.swift in Sources */,
 				74DF2AFC2C4AB85E00D48210 /* TimerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,34 +12,45 @@ struct ContentView: View {
     @Environment(\.scenePhase) var scenePhase
 
     var body: some View {
-        VStack {
-            Spacer()
+        NavigationView {
+            VStack {
+                Spacer()
 
-            TimerView()
-            
-            Spacer()
-            if showNotificationsWarning {
-                HStack(spacing: 0) {
-                    Button(action: {
-                        openSettings()
-                    }) {
-                        Text("notifications_disabled_click_here")
-                            .underline()
-                            .foregroundColor(.blue)
-                        +
-                        Text("notifications_disabled_text")
-                            .foregroundColor(.black)
+                TimerView()
+
+                Spacer()
+                if showNotificationsWarning {
+                    HStack(spacing: 0) {
+                        Button(action: {
+                            openSettings()
+                        }) {
+                            Text("notifications_disabled_click_here")
+                                .underline()
+                                .foregroundColor(.blue)
+                                + Text("notifications_disabled_text")
+                                .foregroundColor(.black)
+                        }
                     }
+                    .fixedSize(horizontal: true, vertical: true)
                 }
-                .fixedSize(horizontal: true, vertical: true)
             }
-        }
-        .padding()
-        .background(Color("BackgroundColor"))
-        .onChange(of: scenePhase) {
-            if scenePhase == .active {
-                Notifications.checkAuthorization { authorized in
-                    showNotificationsWarning = !authorized
+            .padding()
+            .background(Color("BackgroundColor")).navigationBarTitleDisplayMode(
+                .inline
+            )
+            .navigationBarItems(
+                trailing: NavigationLink(destination: SettingsView()) {
+                    Image(systemName: "gearshape.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 30)
+                }
+            )
+            .onChange(of: scenePhase) {
+                if scenePhase == .active {
+                    Notifications.checkAuthorization { authorized in
+                        showNotificationsWarning = !authorized
+                    }
                 }
             }
         }
