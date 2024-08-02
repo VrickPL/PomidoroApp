@@ -16,6 +16,8 @@ struct SettingsView: View {
         UserDefaultsManager.defaultWorkTime
     @AppStorage(AppStorageKeys.BREAK_TIME) private var breakTime: Int =
         UserDefaultsManager.defaultBreakTime
+    
+    @Environment(\.colorScheme) var systemColorScheme
 
     @State private var workTimeEnabled = false
     @State private var breakTimeEnabled = false
@@ -31,7 +33,11 @@ struct SettingsView: View {
             }
         }
         .environment(\.locale, selectedLanguage.locale)
-        .preferredColorScheme(selectedTheme.colorScheme)
+        .environment(\.colorScheme, selectedColorScheme)
+    }
+    
+    private var selectedColorScheme: ColorScheme {
+        return selectedTheme.colorScheme ?? systemColorScheme
     }
 
     private var appSection: some View {
@@ -46,6 +52,11 @@ struct SettingsView: View {
         VStack {
             HStack {
                 HStack {
+                    Image(systemName: "clock")
+                        .foregroundColor(.white)
+                        .padding(3)
+                        .background(.red)
+                        .cornerRadius(5)
                     Text("work_length_time")
                     Image(systemName: "chevron.up")
                         .rotationEffect(
@@ -75,6 +86,11 @@ struct SettingsView: View {
     private var breakTimeView: some View {
         VStack {
             HStack {
+                Image(systemName: "pause.circle")
+                    .foregroundColor(.white)
+                    .padding(3)
+                    .background(.green)
+                    .cornerRadius(5)
                 HStack {
                     Text("break_length_time")
                     Image(systemName: "chevron.up")
@@ -105,14 +121,29 @@ struct SettingsView: View {
 
     private var generalSection: some View {
         Section(header: Text("general")) {
-            Picker("language", selection: $selectedLanguage) {
-                ForEach(Language.allCases, id: \.rawValue) { language in
-                    Text(LocalizedStringKey(language.rawValue)).tag(language)
+            HStack {
+                Image(systemName: "globe")
+                    .foregroundColor(.white)
+                    .padding(3)
+                    .background(.blue)
+                    .cornerRadius(5)
+                Picker("language", selection: $selectedLanguage) {
+                    ForEach(Language.allCases, id: \.rawValue) { language in
+                        Text(LocalizedStringKey(language.rawValue)).tag(
+                            language)
+                    }
                 }
             }
-            Picker("theme", selection: $selectedTheme) {
-                ForEach(Theme.allCases, id: \.rawValue) { theme in
-                    Text(LocalizedStringKey(theme.rawValue)).tag(theme)
+            HStack {
+                Image(systemName: "paintbrush")
+                    .foregroundColor(.white)
+                    .padding(3)
+                    .background(.gray)
+                    .cornerRadius(5)
+                Picker("theme", selection: $selectedTheme) {
+                    ForEach(Theme.allCases, id: \.rawValue) { theme in
+                        Text(LocalizedStringKey(theme.rawValue)).tag(theme)
+                    }
                 }
             }
         }
@@ -121,7 +152,6 @@ struct SettingsView: View {
     private var authorSection: some View {
         Section(
             header: HStack {
-                Image(systemName: "link")
                 Text("app_author")
                 Text("-  Jan Kazubski")
             }
@@ -138,7 +168,10 @@ struct SettingsView: View {
 
         var body: some View {
             Button(action: openURL) {
-                Text(title)
+                HStack {
+                    Image(systemName: "link")
+                    Text(title)
+                }
             }
         }
 
