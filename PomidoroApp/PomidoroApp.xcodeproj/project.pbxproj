@@ -24,6 +24,7 @@
 		74DF2B0A2C4AD2D600D48210 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF2B092C4AD2D600D48210 /* UserDefaultsManager.swift */; };
 		74DF2B0F2C4ADC1200D48210 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DF2B0E2C4ADC1200D48210 /* Notifications.swift */; };
 		74DF2B252C4AF1DF00D48210 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74DF2B232C4AF1DF00D48210 /* Localizable.strings */; };
+		74FE89042C5D290E004B8618 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE89032C5D290E004B8618 /* SplashScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		74DF2B0E2C4ADC1200D48210 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		74DF2B242C4AF1DF00D48210 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		74DF2B262C4AF1EF00D48210 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		74FE89032C5D290E004B8618 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				74DF2AF92C4AB85D00D48210 /* TimerView.swift */,
 				74C075E92C5BE0500046355C /* SettingsView.swift */,
 				74C075F32C5BEF0A0046355C /* TimePickerView.swift */,
+				74FE89032C5D290E004B8618 /* SplashScreenView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			files = (
 				74C075ED2C5BE1310046355C /* AppStorageKeys.swift in Sources */,
 				740D63A52C496F3500F5DB39 /* PomidoroAppApp.swift in Sources */,
+				74FE89042C5D290E004B8618 /* SplashScreenView.swift in Sources */,
 				74DF2AFB2C4AB85E00D48210 /* ContentView.swift in Sources */,
 				74DF2B032C4AB91100D48210 /* TimerMode.swift in Sources */,
 				74C075F12C5BE2170046355C /* Theme.swift in Sources */,
