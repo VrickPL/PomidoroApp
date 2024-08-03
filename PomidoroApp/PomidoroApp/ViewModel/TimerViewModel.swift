@@ -7,6 +7,7 @@
 
 import Foundation
 import Observation
+import UIKit
 
 @Observable
 class TimerViewModel {
@@ -121,6 +122,7 @@ class TimerViewModel {
                 if self.secondsRemaining > 1 {
                     self.secondsRemaining -= 1
                 } else {
+                    self.triggerSuccesHapticFeedback()
                     self.changeMode()
                     self.reset()
                 }
@@ -147,5 +149,11 @@ class TimerViewModel {
         }
 
         UserDefaultsManager.setMode(mode: mode)
+    }
+    
+    private func triggerSuccesHapticFeedback() {
+        if UserDefaultsManager.hapticEnabled  {
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
+        }
     }
 }

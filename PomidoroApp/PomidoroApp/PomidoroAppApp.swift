@@ -15,7 +15,11 @@ struct PomidoroAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            SplashScreenView()
+            if UserDefaultsManager.timerMode == .running {
+                ContentView()
+            } else {
+                SplashScreenView()
+            }
         }
     }
 }

@@ -52,12 +52,19 @@ class UserDefaultsManager {
         return userDefaults.integer(forKey: Keys.SECONDS_LEFT_AFTER_PAUSE)
     }
 
+    static var hapticEnabled: Bool {
+        return userDefaults.bool(forKey: AppStorageKeys.HAPTIC)
+    }
+
     static func register() {
         if workTime == 0 {
             setWorkTime(seconds: defaultWorkTime)
         }
         if breakTime == 0 {
             setBreakTime(seconds: defaultBreakTime)
+        }
+        if userDefaults.object(forKey: AppStorageKeys.HAPTIC) == nil {
+            userDefaults.set(true, forKey: AppStorageKeys.HAPTIC)
         }
     }
 

@@ -18,6 +18,8 @@
 "light" = "Jasny";
 "dark" = "Ciemny";
 
+"haptic" = "Wibracje";
+
 "app_author" = "Autor";
 
 "work_length_time" = "Długość pracy";

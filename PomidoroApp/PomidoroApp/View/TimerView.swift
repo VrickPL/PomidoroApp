@@ -10,6 +10,7 @@ import SwiftUI
 struct TimerView: View {
     @AppStorage(AppStorageKeys.WORK_TIME) private var workTime: Int = UserDefaultsManager.defaultWorkTime
     @AppStorage(AppStorageKeys.BREAK_TIME) private var breakTime: Int = UserDefaultsManager.defaultBreakTime
+    @AppStorage(AppStorageKeys.HAPTIC) private var hapticEnabled: Bool = true
     
     @State private var viewModel = TimerViewModel()
 
@@ -30,6 +31,7 @@ struct TimerView: View {
             case .ready, .finished:
                 Button {
                     viewModel.start()
+                    triggerMediumHapticFeedback()
                 } label: {
                     Text("start")
                         .padding()
@@ -39,6 +41,7 @@ struct TimerView: View {
             case .running:
                 Button {
                     viewModel.pause()
+                    triggerMediumHapticFeedback()
                 } label: {
                     Text("stop")
                         .padding()
@@ -48,6 +51,7 @@ struct TimerView: View {
 
                 Button {
                     viewModel.skip()
+                    triggerMediumHapticFeedback()
                 } label: {
                     Text("skip")
                         .padding()
@@ -57,6 +61,7 @@ struct TimerView: View {
             case .paused:
                 Button {
                     viewModel.resume()
+                    triggerMediumHapticFeedback()
                 } label: {
                     Text("resume")
                         .padding()
@@ -66,6 +71,7 @@ struct TimerView: View {
 
                 Button {
                     viewModel.reset()
+                    triggerMediumHapticFeedback()
                 } label: {
                     Text("reset")
                         .padding()
@@ -81,6 +87,12 @@ struct TimerView: View {
             if viewModel.mode == .breakTime {
                 viewModel.reset()
             }
+        }
+    }
+    
+    private func triggerMediumHapticFeedback() {
+        if hapticEnabled {
+            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
         }
     }
 }
