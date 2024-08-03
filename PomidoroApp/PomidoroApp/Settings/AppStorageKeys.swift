@@ -12,4 +12,5 @@ struct AppStorageKeys {
     static let SELECTED_THEME = "selected_theme"
     static let WORK_TIME = "work_time"
     static let BREAK_TIME = "break_time"
+    static let HAPTIC = "haptic_enabled"
 }

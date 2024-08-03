@@ -16,6 +16,7 @@ struct SettingsView: View {
         UserDefaultsManager.defaultWorkTime
     @AppStorage(AppStorageKeys.BREAK_TIME) private var breakTime: Int =
         UserDefaultsManager.defaultBreakTime
+    @AppStorage(AppStorageKeys.HAPTIC) private var hapticEnabled: Bool = true
     
     @Environment(\.colorScheme) var systemColorScheme
 
@@ -52,11 +53,8 @@ struct SettingsView: View {
         VStack {
             HStack {
                 HStack {
-                    Image(systemName: "clock")
-                        .foregroundColor(.white)
-                        .padding(3)
-                        .background(.red)
-                        .cornerRadius(5)
+                    SettingsIcon(systemName: "clock", backgroundColor: .red)
+
                     Text("work_length_time")
                     Image(systemName: "chevron.up")
                         .rotationEffect(
@@ -86,11 +84,8 @@ struct SettingsView: View {
     private var breakTimeView: some View {
         VStack {
             HStack {
-                Image(systemName: "pause.circle")
-                    .foregroundColor(.white)
-                    .padding(3)
-                    .background(.green)
-                    .cornerRadius(5)
+                SettingsIcon(systemName: "pause.circle", backgroundColor: .green)
+
                 HStack {
                     Text("break_length_time")
                     Image(systemName: "chevron.up")
@@ -122,11 +117,8 @@ struct SettingsView: View {
     private var generalSection: some View {
         Section(header: Text("general")) {
             HStack {
-                Image(systemName: "globe")
-                    .foregroundColor(.white)
-                    .padding(3)
-                    .background(.blue)
-                    .cornerRadius(5)
+                SettingsIcon(systemName: "globe", backgroundColor: .blue)
+
                 Picker("language", selection: $selectedLanguage) {
                     ForEach(Language.allCases, id: \.rawValue) { language in
                         Text(LocalizedStringKey(language.rawValue)).tag(
@@ -135,16 +127,18 @@ struct SettingsView: View {
                 }
             }
             HStack {
-                Image(systemName: "paintbrush")
-                    .foregroundColor(.white)
-                    .padding(3)
-                    .background(.gray)
-                    .cornerRadius(5)
+                SettingsIcon(systemName: "paintbrush", backgroundColor: .gray)
+
                 Picker("theme", selection: $selectedTheme) {
                     ForEach(Theme.allCases, id: \.rawValue) { theme in
                         Text(LocalizedStringKey(theme.rawValue)).tag(theme)
                     }
                 }
+            }
+            HStack {
+                SettingsIcon(systemName: "hand.tap", backgroundColor: .indigo)
+
+                Toggle("haptic", isOn: $hapticEnabled)
             }
         }
     }
@@ -159,6 +153,19 @@ struct SettingsView: View {
             LinkButton(url: "https://github.com/VrickPL", title: "GitHub")
             LinkButton(
                 url: "https://linkedin.com/in/jan-kazubski", title: "LinkedIn")
+        }
+    }
+    
+    private struct SettingsIcon: View {
+        var systemName: String
+        var backgroundColor: Color
+        
+        var body: some View {
+            Image(systemName: systemName)
+                .foregroundColor(.white)
+                .padding(3)
+                .background(backgroundColor)
+                .cornerRadius(5)
         }
     }
 

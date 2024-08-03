@@ -18,6 +18,8 @@
 "light" = "Light";
 "dark" = "Dark";
 
+"haptic" = "Phone vibrations";
+
 "app_author" = "Author";
 
 "work_length_time" = "Work length time";
