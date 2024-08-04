@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct TimerView: View {
-    @AppStorage(AppStorageKeys.WORK_TIME) private var workTime: Int = UserDefaultsManager.defaultWorkTime
-    @AppStorage(AppStorageKeys.BREAK_TIME) private var breakTime: Int = UserDefaultsManager.defaultBreakTime
+    @AppStorage(AppStorageKeys.WORK_TIME) private var workTime: Int =
+        UserDefaultsManager.defaultWorkTime
+    @AppStorage(AppStorageKeys.BREAK_TIME) private var breakTime: Int =
+        UserDefaultsManager.defaultBreakTime
     @AppStorage(AppStorageKeys.HAPTIC) private var hapticEnabled: Bool = true
-    
+
     @State private var viewModel = TimerViewModel()
+    
+    @State private var shouldTriggerSucces = true
 
     var body: some View {
         VStack {
@@ -32,6 +36,8 @@ struct TimerView: View {
                 Button {
                     viewModel.start()
                     triggerMediumHapticFeedback()
+                    
+                    shouldTriggerSucces = true
                 } label: {
                     Text("start")
                         .padding()
@@ -62,6 +68,8 @@ struct TimerView: View {
                 Button {
                     viewModel.resume()
                     triggerMediumHapticFeedback()
+                    
+                    shouldTriggerSucces = true
                 } label: {
                     Text("resume")
                         .padding()
@@ -87,12 +95,31 @@ struct TimerView: View {
             if viewModel.mode == .breakTime {
                 viewModel.reset()
             }
+        }.onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+            viewModel = TimerViewModel()
+
+            guard let endDate = UserDefaultsManager.endDate else { return }
+            if .now > endDate {
+                shouldTriggerSucces = false
+            }
+        }.onChange(of: viewModel.timerFinished) {
+            if viewModel.timerFinished {
+                triggerSuccesHapticFeedback()
+                viewModel.timerFinished = false
+            }
         }
     }
-    
+
     private func triggerMediumHapticFeedback() {
         if hapticEnabled {
             UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+        }
+    }
+    
+    private func triggerSuccesHapticFeedback() {
+        if hapticEnabled && shouldTriggerSucces {
+            shouldTriggerSucces = false
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
         }
     }
 }
