@@ -127,7 +127,7 @@ struct SettingsView: View {
                 }
             }
             HStack {
-                SettingsIcon(systemName: "paintbrush", backgroundColor: .gray)
+                SettingsIcon(systemName: "moon", backgroundColor: .gray)
 
                 Picker("theme", selection: $selectedTheme) {
                     ForEach(Theme.allCases, id: \.rawValue) { theme in
@@ -137,6 +137,9 @@ struct SettingsView: View {
             }
             HStack {
                 SettingsIcon(systemName: "hand.tap", backgroundColor: .indigo)
+                    .padding(.trailing, 1)
+                    .background(.indigo)
+                    .cornerRadius(5)
 
                 Toggle("haptic", isOn: $hapticEnabled)
             }

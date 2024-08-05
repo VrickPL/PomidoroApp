@@ -16,7 +16,7 @@ struct TimerView: View {
 
     @State private var viewModel = TimerViewModel()
     
-    @State private var shouldTriggerSucces = true
+    @State private var shouldTriggerSuccess = true
 
     var body: some View {
         VStack {
@@ -37,7 +37,7 @@ struct TimerView: View {
                     viewModel.start()
                     triggerMediumHapticFeedback()
                     
-                    shouldTriggerSucces = true
+                    shouldTriggerSuccess = true
                 } label: {
                     Text("start")
                         .padding()
@@ -69,7 +69,7 @@ struct TimerView: View {
                     viewModel.resume()
                     triggerMediumHapticFeedback()
                     
-                    shouldTriggerSucces = true
+                    shouldTriggerSuccess = true
                 } label: {
                     Text("resume")
                         .padding()
@@ -100,11 +100,11 @@ struct TimerView: View {
 
             guard let endDate = UserDefaultsManager.endDate else { return }
             if .now > endDate {
-                shouldTriggerSucces = false
+                shouldTriggerSuccess = false
             }
         }.onChange(of: viewModel.timerFinished) {
             if viewModel.timerFinished {
-                triggerSuccesHapticFeedback()
+                triggerSuccessHapticFeedback()
                 viewModel.timerFinished = false
             }
         }
@@ -116,9 +116,9 @@ struct TimerView: View {
         }
     }
     
-    private func triggerSuccesHapticFeedback() {
-        if hapticEnabled && shouldTriggerSucces {
-            shouldTriggerSucces = false
+    private func triggerSuccessHapticFeedback() {
+        if hapticEnabled && shouldTriggerSuccess {
+            shouldTriggerSuccess = false
             UINotificationFeedbackGenerator().notificationOccurred(.success)
         }
     }
