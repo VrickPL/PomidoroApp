@@ -19,7 +19,7 @@ class TimerViewModel {
 
     private var timer: Timer?
 
-    private var baseTime: TimeInterval {
+    var baseTime: TimeInterval {
         return switch mode {
         case .breakTime:
             TimeInterval(UserDefaultsManager.breakTime)

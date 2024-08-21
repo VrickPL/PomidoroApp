@@ -26,6 +26,8 @@
 "break_length_time" = "Długość przerwy";
 
 
+"workTime" = "Praca";
+"breakTime" = "Przerwa";
 "start" = "Start";
 "stop" = "Stop";
 "skip" = "Pomiń";

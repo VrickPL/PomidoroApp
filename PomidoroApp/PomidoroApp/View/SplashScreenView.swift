@@ -21,7 +21,7 @@ struct SplashScreenView: View {
                     .ignoresSafeArea()
                 VStack {
                     VStack {
-                        Image("AppIconBackgroundless")
+                        Image("Tomato")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 200, height: 200)
