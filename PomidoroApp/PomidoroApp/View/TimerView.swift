@@ -15,76 +15,115 @@ struct TimerView: View {
     @AppStorage(AppStorageKeys.HAPTIC) private var hapticEnabled: Bool = true
 
     @State private var viewModel = TimerViewModel()
-    
     @State private var shouldTriggerSuccess = true
+    @State private var isLandscape: Bool = false
+
+    private var getTimePassed: () -> Double {
+        return {
+            (viewModel.baseTime - viewModel.secondsRemaining)
+                / viewModel.baseTime
+        }
+    }
 
     var body: some View {
-        VStack {
-            ZStack {
-                Circle().foregroundColor(.red)
+        GeometryReader { geometry in
+            let width = geometry.size.width
+            let height = geometry.size.height
 
-                Text(TimeCalculator(viewModel.secondsRemaining).format())
-                    .bold()
-                    .font(.system(size: 50))
-                    .foregroundColor(.white)
-            }.padding()
-
-            Text(viewModel.mode.rawValue)
-
-            switch viewModel.timerMode {
-            case .ready, .finished:
-                Button {
-                    viewModel.start()
-                    triggerMediumHapticFeedback()
-                    
-                    shouldTriggerSuccess = true
-                } label: {
-                    Text("start")
-                        .padding()
-                        .background(.white)
-                        .cornerRadius(10)
-                }
-            case .running:
-                Button {
-                    viewModel.pause()
-                    triggerMediumHapticFeedback()
-                } label: {
-                    Text("stop")
-                        .padding()
-                        .background(.white)
-                        .cornerRadius(10)
+            VStack {
+                if !isLandscape {
+                    VStack {
+                        Spacer()
+                        CurrentTomatoView(timePassed: getTimePassed())
+                        Spacer()
+                    }
+                    .frame(
+                        width: width,
+                        height: height * 0.5
+                    )
                 }
 
-                Button {
-                    viewModel.skip()
-                    triggerMediumHapticFeedback()
-                } label: {
-                    Text("skip")
-                        .padding()
-                        .background(.white)
-                        .cornerRadius(10)
-                }
-            case .paused:
-                Button {
-                    viewModel.resume()
-                    triggerMediumHapticFeedback()
-                    
-                    shouldTriggerSuccess = true
-                } label: {
-                    Text("resume")
-                        .padding()
-                        .background(.white)
-                        .cornerRadius(10)
-                }
+                VStack {
+                    Text(TimeCalculator(viewModel.secondsRemaining).format())
+                        .bold()
+                        .font(.system(size: isLandscape ? 150 : 90))
+                        .foregroundColor(Color("ForegroundColor"))
 
-                Button {
-                    viewModel.reset()
-                    triggerMediumHapticFeedback()
-                } label: {
-                    Text("reset")
+                    Text(LocalizedStringKey(viewModel.mode.rawValue))
+                        .foregroundColor(Color("ModeNameColor"))
+                        .bold()
+
+                    Spacer()
+
+                    switch viewModel.timerMode {
+                    case .ready, .finished:
+                        CustomButton(
+                            onAction: {
+                                viewModel.start()
+                                triggerMediumHapticFeedback()
+
+                                shouldTriggerSuccess = true
+                            },
+                            text: "start"
+                        )
+                        .frame(maxWidth: .infinity)
                         .padding()
-                        .background(.white)
-                        .cornerRadius(10)
+                    case .running:
+                        HStack {
+                            CustomButton(
+                                onAction: {
+                                    viewModel.pause()
+                                    triggerMediumHapticFeedback()
+                                },
+                                text: "stop"
+                            )
+                            .frame(width: .infinity)
+                            .padding()
+
+                            CustomButton(
+                                onAction: {
+                                    viewModel.skip()
+                                    triggerMediumHapticFeedback()
+                                },
+                                text: "skip"
+                            )
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                        }
+                    case .paused:
+                        HStack {
+                            CustomButton(
+                                onAction: {
+                                    viewModel.resume()
+                                    triggerMediumHapticFeedback()
+
+                                    shouldTriggerSuccess = true
+                                },
+                                text: "resume"
+                            )
+                            .padding()
+
+                            CustomButton(
+                                onAction: {
+                                    viewModel.reset()
+                                    triggerMediumHapticFeedback()
+                                },
+                                text: "reset"
+                            )
+                            .padding()
+                        }
+                        .frame(maxWidth: .infinity)
+                    }
+                }
+                .frame(
+                    width: width,
+                    height: isLandscape ? height : height * 0.5
+                )
+                .onAppear {
+                    isLandscape = width > height
+                }
+                .onChange(of: geometry.size) { _, newSize in
+                    self.isLandscape = newSize.width > newSize.height
                 }
             }
         }.onChange(of: workTime) {
@@ -95,7 +134,10 @@ struct TimerView: View {
             if viewModel.mode == .breakTime {
                 viewModel.reset()
             }
-        }.onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+        }.onReceive(
+            NotificationCenter.default.publisher(
+                for: UIApplication.didBecomeActiveNotification)
+        ) { _ in
             viewModel = TimerViewModel()
 
             guard let endDate = UserDefaultsManager.endDate else { return }
@@ -110,12 +152,73 @@ struct TimerView: View {
         }
     }
 
+    private struct CurrentTomatoView: View {
+        var timePassed: Double
+
+        @State private var currentTomato: Tomato = Tomato.plant
+
+        var body: some View {
+            VStack {
+                switch currentTomato {
+                case .tomato:
+                    Image(currentTomato.rawValue)
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(0.8)
+                case .greenTomato:
+                    Image(currentTomato.rawValue)
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(0.6)
+                case .biggerPlant:
+                    Image(currentTomato.rawValue)
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(0.7)
+                case .plant:
+                    Image(currentTomato.rawValue)
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(0.5)
+                }
+            }
+            .animation(.easeInOut, value: currentTomato)
+            .onAppear {
+                updateImage()
+            }
+            .onChange(of: timePassed) {
+                updateImage()
+            }
+        }
+
+        private func updateImage() {
+            withAnimation {
+                if timePassed >= 0.75 {
+                    currentTomato = Tomato.tomato
+                } else if timePassed >= 0.5 {
+                    currentTomato = Tomato.greenTomato
+                } else if timePassed >= 0.25 {
+                    currentTomato = Tomato.biggerPlant
+                } else {
+                    currentTomato = Tomato.plant
+                }
+            }
+        }
+
+        private enum Tomato: String {
+            case tomato = "Tomato"
+            case greenTomato = "GreenTomato"
+            case biggerPlant = "BiggerPlant"
+            case plant = "Plant"
+        }
+    }
+
     private func triggerMediumHapticFeedback() {
         if hapticEnabled {
             UIImpactFeedbackGenerator(style: .medium).impactOccurred()
         }
     }
-    
+
     private func triggerSuccessHapticFeedback() {
         if hapticEnabled && shouldTriggerSuccess {
             shouldTriggerSuccess = false
