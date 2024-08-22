@@ -14,11 +14,11 @@ Mobile iOS app for Pomodoro.
 
 
 ## Table of contents 
-- [Used technologies and libraries](https://github.com/VrickPL/PomidoroApp/tree/feature/readme?tab=readme-ov-file#used-technologies-and-libraries)
-- [Splash Screen](https://github.com/VrickPL/PomidoroApp/tree/feature/readme?tab=readme-ov-file#splash-screen)
-- [Pomidoro](https://github.com/VrickPL/PomidoroApp/tree/feature/readme?tab=readme-ov-file#pomidoro)
-- [Timer logic](https://github.com/VrickPL/PomidoroApp/tree/feature/readme?tab=readme-ov-file#timer-logic)
-- [Settings](https://github.com/VrickPL/PomidoroApp/tree/feature/readme?tab=readme-ov-file#settings)
+- [Used technologies and libraries](https://github.com/VrickPL/PomidoroApp/tree/main?tab=readme-ov-file#used-technologies-and-libraries)
+- [Splash Screen](https://github.com/VrickPL/PomidoroApp/tree/main?tab=readme-ov-file#splash-screen)
+- [Pomidoro](https://github.com/VrickPL/PomidoroApp/tree/main?tab=readme-ov-file#pomidoro)
+- [Timer logic](https://github.com/VrickPL/PomidoroApp/tree/main?tab=readme-ov-file#timer-logic)
+- [Settings](https://github.com/VrickPL/PomidoroApp/tree/main?tab=readme-ov-file#settings)
 
 
 
@@ -35,11 +35,11 @@ Project has been written in **MVVM** pattern.
 
 
 
-
 ## Splash Screen
-// photo
 
-
+<p align="center"> 
+<img src="https://github.com/user-attachments/assets/6251f170-0414-4682-96b0-150a252105d4" width="310" height="660">
+</p>
 
 
 
@@ -51,10 +51,22 @@ The main screen is **simple and intuitive**. It features a *modern, sleek design
 You can **start**, **stop**, **reset**, or **skip** your current mode with ease. Just keep pushing forward, because *your goal is closer than you think!*
 
 
-// photos
+<p align="center"> 
+<img src="https://github.com/user-attachments/assets/a099a995-9d81-4124-98ee-5eefda8477d4" width="310" height="660">
+<img src="https://github.com/user-attachments/assets/ad5994eb-bc6b-47a8-b096-1e02eb5a38ae" width="310" height="660">
+</p>
+
+<p align="center"> 
+<img src="https://github.com/user-attachments/assets/7e53dd8a-2a2a-42b0-9002-aa6c696b91a0" width="310" height="660">
+<img src="https://github.com/user-attachments/assets/16b4d55f-a586-41b7-adf1-b83906fd123c" width="310" height="660">
+</p>
 
 <br>
 <p align="center"><i>All icons were drawn by my girlfriend.</i></p>
+
+
+
+
 
 ## Timer logic
 The timer updates every second while the app is open. If you close the app or turn off your phone, *don't worry*—the timer keeps running in the background. When you reopen the app, **the timer will continue** where it left off. If the countdown finishes while you're away, **you'll receive a notification** and the timer will automatically switch to the next mode. Simply return to the app to resume!
@@ -64,6 +76,11 @@ If you adjust the time settings while the timer is active, **the timer will rese
 <br>
 <br>
 If you stop the timer and close the app, **the app will remember your progress**, so when you return, you'll pick up right where you left off. *Smart, right?*
+
+
+<p align="center"> 
+<img src="https://github.com/user-attachments/assets/8c90c6e2-9c10-4773-bab0-7d65f3ba1900" width="400" height="105">
+</p>
 
 
 
@@ -80,5 +97,7 @@ All your selections will be securely stored in **AppStorage** for convenience.
 
 In this section, you can also find my **GitHub** and **LinkedIn** profiles. 
 
-
-// photos
+<p align="center"> 
+<img src="https://github.com/user-attachments/assets/5fa1b1f0-4ef8-4ac3-9546-3843118d63c6" width="310" height="660">
+<img src="https://github.com/user-attachments/assets/ec9b8d23-a49c-4c04-ba41-d4218c47e8e8" width="310" height="660">
+</p>
