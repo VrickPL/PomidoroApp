@@ -38,6 +38,14 @@ Project has been written in **MVVM** pattern.
 <p align="center"><i>All icons were drawn by my girlfriend.</i></p>
 
 ## Timer logic
+The timer updates every second while the app is open. If you close the app or turn off your phone, *don't worry*—the timer keeps running in the background. When you reopen the app, **the timer will continue** where it left off. If the countdown finishes while you're away, **you'll receive a notification** and the timer will automatically switch to the next mode. Simply return to the app to resume!
+<br>
+<br>
+If you adjust the time settings while the timer is active, **the timer will reset** to reflect your new preferences.
+<br>
+<br>
+If you stop the timer and close the app, **the app will remember your progress**, so when you return, you'll pick up right where you left off. *Smart, right?*
+
 
 
 
