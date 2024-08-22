@@ -7,7 +7,7 @@ Mobile iOS app for Pomodoro.
 <br>
 
 
-**Pomidoro** is a sleek app designed to boost productivity with the [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique). Its intuitive interface is perfect for both beginners and pros. Customize your work and break intervals, receive timely notifications to stay on track, and enjoy the motivating charm of a growing tomato icons as you progress through your tasks!
+**Pomidoro** is a sleek app designed to boost productivity with the [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique). Its intuitive interface is perfect for both beginners and pros. Customize your work and break intervals, receive timely notifications to stay on track, and enjoy the motivating charm of a growing tomato icons as you progress through your tasks! Whether your phone is locked or the app is not open, you can trust that your timer is still running.
 
 
 
