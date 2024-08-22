@@ -25,8 +25,8 @@
 "work_length_time" = "Work length time";
 "break_length_time" = "Break length time";
 
-"workTime" = "Work";
-"breakTime" = "Work";
+"workTime" = "Work time";
+"breakTime" = "Break time";
 "start" = "Start";
 "stop" = "Stop";
 "skip" = "Skip";
