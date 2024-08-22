@@ -6,16 +6,15 @@ Mobile iOS app for Pomodoro.
 </h3>
 <br>
 
-**Pomidoro** is a modern app, designed to enhance productivity through the [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique)! Its user-friendly interface makes it ideal for both newcomers and seasoned users looking to optimize their work habits. Customize your work time and break time by setting your own values in the settings—the app will remember your preferences for future sessions. As you work and rest, you'll be accompanied by charming icons of a growing tomato, adding a touch of motivation to your productivity journey!
-<br>
-*All icons were drawn by my girlfriend.*
+
+**Pomidoro** is a sleek app designed to boost productivity with the [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique). Its intuitive interface is perfect for both beginners and pros. Customize your work and break intervals, receive timely notifications to stay on track, and enjoy the motivating charm of a growing tomato icon as you progress through your tasks!
 
 ## Table of contents 
-- [Used technologies and libraries]()
-- [Splash Screen]()
-- [Pomodoro]()
-- [Timer logic]()
-- [Settings]()
+- [Used technologies and libraries](https://github.com/VrickPL/PomidoroApp/tree/feature/readme?tab=readme-ov-file#used-technologies-and-libraries)
+- [Splash Screen](https://github.com/VrickPL/PomidoroApp/tree/feature/readme?tab=readme-ov-file#splash-screen)
+- [Pomodoro](https://github.com/VrickPL/PomidoroApp/tree/feature/readme?tab=readme-ov-file#pomodoro)
+- [Timer logic](https://github.com/VrickPL/PomidoroApp/tree/feature/readme?tab=readme-ov-file#timer-logic)
+- [Settings](https://github.com/VrickPL/PomidoroApp/tree/feature/readme?tab=readme-ov-file#settings)
 
 ## Used technologies and libraries
 - **[Swift](https://www.swift.org/documentation/)**,  
@@ -26,13 +25,17 @@ Mobile iOS app for Pomodoro.
 Project has been written in **MVVM** pattern.
 
 ## Splash Screen
-
+// photo
 
 
 ## Pomodoro
 
 
 
+// photos
+
+<br>
+<p align="center"><i>All icons were drawn by my girlfriend.</i></p>
 
 ## Timer logic
 
@@ -49,3 +52,6 @@ In Settings you can adjust:
 All your selections will be securely stored in **AppStorage** for convenience.
 
 In this section, you can also find my **GitHub** and **LinkedIn** profiles. 
+
+
+// photos
