@@ -12,7 +12,7 @@ import Observation
 class TimerViewModel {
     var secondsRemaining: TimeInterval = 0
 
-    var mode: ActualMode
+    var timerPhase: TimerPhase
     var timerMode: TimerMode
     
     var timerFinished = false
@@ -20,16 +20,21 @@ class TimerViewModel {
     private var timer: Timer?
 
     var baseTime: TimeInterval {
-        return switch mode {
+        return switch timerPhase {
         case .breakTime:
             TimeInterval(UserDefaultsManager.breakTime)
         case .workTime:
             TimeInterval(UserDefaultsManager.workTime)
         }
     }
+    
+    var timePassedPercentage: Double {
+        return ((baseTime - secondsRemaining) / baseTime).rounded(toPlaces: 2)
+    }
+
 
     init() {
-        self.mode = UserDefaultsManager.mode ?? .workTime
+        self.timerPhase = UserDefaultsManager.phase ?? .workTime
         self.timerMode = UserDefaultsManager.timerMode ?? .ready
 
         if timerMode == .paused {
@@ -41,7 +46,7 @@ class TimerViewModel {
 
                 if now > endDate {
                     stopTimer()
-                    changeMode()
+                    changePhase()
                     self.secondsRemaining = baseTime
                     self.timerMode = .ready
                     UserDefaultsManager.clearTimerMode()
@@ -79,8 +84,8 @@ class TimerViewModel {
 
         Notifications.scheduleNotification(
             seconds: secondsRemaining,
-            title: mode.getNotificationTitleString(),
-            body: mode.getNotificationBodyString()
+            title: timerPhase.getNotificationTitleString(),
+            body: timerPhase.getNotificationBodyString()
         )
 
         startTimer()
@@ -97,7 +102,7 @@ class TimerViewModel {
         stopTimer()
         timerMode = .ready
         UserDefaultsManager.clearTimerMode()
-        changeMode()
+        changePhase()
         secondsRemaining = baseTime
     }
 
@@ -108,8 +113,8 @@ class TimerViewModel {
 
             Notifications.scheduleNotification(
                 seconds: secondsRemaining,
-                title: mode.getNotificationTitleString(),
-                body: mode.getNotificationBodyString()
+                title: timerPhase.getNotificationTitleString(),
+                body: timerPhase.getNotificationBodyString()
             )
             
             if self.secondsRemaining > 1 {
@@ -124,7 +129,7 @@ class TimerViewModel {
                     self.secondsRemaining -= 1
                 } else {
                     self.timerFinished = true
-                    self.changeMode()
+                    self.changePhase()
                     self.reset()
                 }
             case .ready, .paused, .finished:
@@ -141,14 +146,21 @@ class TimerViewModel {
         Notifications.stopAllNotifications()
     }
 
-    private func changeMode() {
-        switch mode {
+    private func changePhase() {
+        switch timerPhase {
         case .breakTime:
-            self.mode = .workTime
+            self.timerPhase = .workTime
         case .workTime:
-            self.mode = .breakTime
+            self.timerPhase = .breakTime
         }
 
-        UserDefaultsManager.setMode(mode: mode)
+        UserDefaultsManager.setPhase(phase: timerPhase)
+    }
+}
+
+extension Double {
+    func rounded(toPlaces places: Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
     }
 }

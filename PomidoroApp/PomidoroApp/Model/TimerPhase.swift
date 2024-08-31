@@ -1,5 +1,5 @@
 //
-//  Mode.swift
+//  TimerPhase.swift
 //  PomidoroApp
 //
 //  Created by Jan Kazubski on 19/07/2024.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum ActualMode: String {
+enum TimerPhase: String, CaseIterable {
     case breakTime = "breakTime"
     case workTime = "workTime"
     
-    static func fromString(_ name: String?) -> ActualMode? {
+    static func fromString(_ name: String?) -> TimerPhase? {
         return if let name = name {
-            ActualMode(rawValue: name)
+            TimerPhase(rawValue: name)
         } else {
             nil
         }
