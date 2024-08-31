@@ -61,7 +61,7 @@ You can **start**, **stop**, **reset**, or **skip** your current mode with ease.
 </p>
 
 <br>
-<p align="center"><i>All icons were drawn by my girlfriend.</i></p>
+<p align="center"><i>All icons have been drawn by my girlfriend.</i></p>
 
 
 
@@ -75,14 +75,13 @@ If you adjust the time settings while the timer is active, **the timer will rese
 <br>
 <br>
 If you stop the timer and close the app, **the app will remember your progress**, so when you return, you'll pick up right where you left off. *Smart, right?*
-<br>
-<br>
-Extensive **unit testing** has been applied to ensure the code is free of bugs.
 
 <p align="center"> 
 <img src="https://github.com/user-attachments/assets/8c90c6e2-9c10-4773-bab0-7d65f3ba1900" width="400" height="105">
 </p>
 
+
+Extensive **unit testing** has been applied to ensure the code is free of bugs.
 
 
 
