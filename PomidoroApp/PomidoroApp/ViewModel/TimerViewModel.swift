@@ -29,7 +29,7 @@ class TimerViewModel {
     }
     
     var timePassedPercentage: Double {
-        return (baseTime - secondsRemaining) / baseTime
+        return ((baseTime - secondsRemaining) / baseTime).rounded(toPlaces: 2)
     }
 
 
@@ -155,5 +155,12 @@ class TimerViewModel {
         }
 
         UserDefaultsManager.setPhase(phase: timerPhase)
+    }
+}
+
+extension Double {
+    func rounded(toPlaces places: Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
     }
 }

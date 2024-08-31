@@ -80,12 +80,8 @@ class UserDefaultsManager {
         userDefaults.set(startDate, forKey: Keys.TIMER_START_DATE)
         userDefaults.set(
             startDate.addingTimeInterval(secondsLeft),
-            forKey: Keys.TIMER_END_DATE)
-    }
-
-    static func resetTimer() {
-        userDefaults.removeObject(forKey: Keys.TIMER_START_DATE)
-        userDefaults.removeObject(forKey: Keys.TIMER_END_DATE)
+            forKey: Keys.TIMER_END_DATE
+        )
     }
 
     static func setPhase(phase: TimerPhase) {
@@ -96,12 +92,27 @@ class UserDefaultsManager {
         userDefaults.set(timerMode.rawValue, forKey: Keys.TIMER_MODE)
     }
 
+    static func setSecondsLeftAfterPause(secondsLeft: TimeInterval) {
+        userDefaults.set(secondsLeft, forKey: Keys.SECONDS_LEFT_AFTER_PAUSE)
+    }
+    
     static func clearTimerMode() {
         userDefaults.removeObject(forKey: Keys.TIMER_MODE)
     }
-
-    static func setSecondsLeftAfterPause(secondsLeft: TimeInterval) {
-        userDefaults.set(secondsLeft, forKey: Keys.SECONDS_LEFT_AFTER_PAUSE)
+    
+    static func resetTimer() {
+        userDefaults.removeObject(forKey: Keys.TIMER_START_DATE)
+        userDefaults.removeObject(forKey: Keys.TIMER_END_DATE)
+    }
+    
+    static func clearAll() {
+        userDefaults.removeObject(forKey: Keys.TIMER_START_DATE)
+        userDefaults.removeObject(forKey: Keys.TIMER_END_DATE)
+        userDefaults.removeObject(forKey: Keys.TIMER_PHASE)
+        userDefaults.removeObject(forKey: Keys.TIMER_MODE)
+        userDefaults.removeObject(forKey: Keys.SECONDS_LEFT_AFTER_PAUSE)
+        setWorkTime(seconds: defaultWorkTime)
+        setBreakTime(seconds: defaultBreakTime)
     }
 
     private static var userDefaults: UserDefaults {
