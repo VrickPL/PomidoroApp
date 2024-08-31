@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TimerPhase: String {
+enum TimerPhase: String, CaseIterable {
     case breakTime = "breakTime"
     case workTime = "workTime"
     

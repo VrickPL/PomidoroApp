@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TimerMode: String {
+enum TimerMode: String, CaseIterable {
     case ready = "ready"
     case running = "running"
     case paused = "paused"
