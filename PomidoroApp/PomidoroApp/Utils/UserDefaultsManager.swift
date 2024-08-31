@@ -14,7 +14,7 @@ class UserDefaultsManager {
     private struct Keys {
         static let TIMER_START_DATE = "timer_start_date"
         static let TIMER_END_DATE = "timer_end_date"
-        static let MODE = "mode"
+        static let TIMER_PHASE = "timer_phase"
         static let TIMER_MODE = "timer_mode"
         static let SECONDS_LEFT_AFTER_PAUSE = "seconds_left_after_pause"
     }
@@ -35,11 +35,11 @@ class UserDefaultsManager {
         return userDefaults.object(forKey: Keys.TIMER_END_DATE) as? Date
     }
 
-    static var mode: ActualMode? {
-        guard let modeString = userDefaults.string(forKey: Keys.MODE) else {
+    static var phase: TimerPhase? {
+        guard let phaseString = userDefaults.string(forKey: Keys.TIMER_PHASE) else {
             return nil
         }
-        return ActualMode.fromString(modeString)
+        return TimerPhase.fromString(phaseString)
     }
 
     static var timerMode: TimerMode? {
@@ -88,8 +88,8 @@ class UserDefaultsManager {
         userDefaults.removeObject(forKey: Keys.TIMER_END_DATE)
     }
 
-    static func setMode(mode: ActualMode) {
-        userDefaults.set(mode.rawValue, forKey: Keys.MODE)
+    static func setPhase(phase: TimerPhase) {
+        userDefaults.set(phase.rawValue, forKey: Keys.TIMER_PHASE)
     }
 
     static func setTimerMode(timerMode: TimerMode) {

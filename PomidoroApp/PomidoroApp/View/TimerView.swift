@@ -49,7 +49,7 @@ struct TimerView: View {
                         .font(.system(size: isLandscape ? 150 : 90))
                         .foregroundColor(Color("ForegroundColor"))
 
-                    Text(LocalizedStringKey(viewModel.mode.rawValue))
+                    Text(LocalizedStringKey(viewModel.timerPhase.rawValue))
                         .foregroundColor(Color("ModeNameColor"))
                         .bold()
 
@@ -127,11 +127,11 @@ struct TimerView: View {
                 }
             }
         }.onChange(of: workTime) {
-            if viewModel.mode == .workTime {
+            if viewModel.timerPhase == .workTime {
                 viewModel.reset()
             }
         }.onChange(of: breakTime) {
-            if viewModel.mode == .breakTime {
+            if viewModel.timerPhase == .breakTime {
                 viewModel.reset()
             }
         }.onReceive(
