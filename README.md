@@ -7,7 +7,7 @@ Mobile iOS app for Pomodoro.
 <br>
 
 
-**Pomidoro** is a sleek app designed to boost productivity with the [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique). Its intuitive interface is perfect for both beginners and pros. Customize your work and break intervals, receive timely notifications to stay on track, and enjoy the motivating charm of a growing tomato icons as you progress through your tasks! Whether your phone is locked or the app is not open, you can trust that your timer is still running.
+**Pomidoro** is a sleek app designed to boost productivity with the [Pomodoro Technique](https://en.wikipedia.org/wiki/Pomodoro_Technique). Its intuitive interface is perfect for both beginners and pros. Customize your work and break intervals, receive timely notifications to stay on track, and enjoy the motivating charm of a growing tomato icons as you progress through your tasks! Whether your phone is locked or the app is not open, you can trust that your timer is still running. The app's classes have been thoroughly covered with unit tests, ensuring reliability and stability in its core functionality. Built using the MVVM architecture.
 
 
 
@@ -27,10 +27,9 @@ Mobile iOS app for Pomodoro.
 ## Used technologies and libraries
 - **[Swift](https://www.swift.org/documentation/)**,  
 - **[SwiftUI](https://developer.apple.com/tutorials/swiftui)**,
-- **[UserNotifications](https://developer.apple.com/documentation/usernotifications/)**
+- **[UserNotifications](https://developer.apple.com/documentation/usernotifications/)**,
+- **[Swift Testing](https://developer.apple.com/xcode/swift-testing/)**, 
 - **[Timer](https://developer.apple.com/documentation/foundation/timer)**
-
-Project has been written in **MVVM** pattern.
 
 
 
@@ -76,7 +75,9 @@ If you adjust the time settings while the timer is active, **the timer will rese
 <br>
 <br>
 If you stop the timer and close the app, **the app will remember your progress**, so when you return, you'll pick up right where you left off. *Smart, right?*
-
+<br>
+<br>
+Extensive **unit testing** has been applied to ensure the code is free of bugs.
 
 <p align="center"> 
 <img src="https://github.com/user-attachments/assets/8c90c6e2-9c10-4773-bab0-7d65f3ba1900" width="400" height="105">
