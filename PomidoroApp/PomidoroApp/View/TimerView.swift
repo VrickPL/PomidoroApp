@@ -18,13 +18,6 @@ struct TimerView: View {
     @State private var shouldTriggerSuccess = true
     @State private var isLandscape: Bool = false
 
-    private var getTimePassed: () -> Double {
-        return {
-            (viewModel.baseTime - viewModel.secondsRemaining)
-                / viewModel.baseTime
-        }
-    }
-
     var body: some View {
         GeometryReader { geometry in
             let width = geometry.size.width
@@ -34,7 +27,7 @@ struct TimerView: View {
                 if !isLandscape {
                     VStack {
                         Spacer()
-                        CurrentTomatoView(timePassed: getTimePassed())
+                        CurrentTomatoView(timePassed: viewModel.timePassedPercentage)
                         Spacer()
                     }
                     .frame(

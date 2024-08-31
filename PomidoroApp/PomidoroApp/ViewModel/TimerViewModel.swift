@@ -27,6 +27,11 @@ class TimerViewModel {
             TimeInterval(UserDefaultsManager.workTime)
         }
     }
+    
+    var timePassedPercentage: Double {
+        return (baseTime - secondsRemaining) / baseTime
+    }
+
 
     init() {
         self.timerPhase = UserDefaultsManager.phase ?? .workTime
