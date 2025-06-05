@@ -14,11 +14,11 @@ Mobile iOS app for Pomodoro.
 
 
 ## Table of contents 
-- [Used technologies and libraries](https://github.com/VrickPL/PomidoroApp/tree/main?tab=readme-ov-file#used-technologies-and-libraries)
-- [Splash Screen](https://github.com/VrickPL/PomidoroApp/tree/main?tab=readme-ov-file#splash-screen)
-- [Pomidoro](https://github.com/VrickPL/PomidoroApp/tree/main?tab=readme-ov-file#pomidoro)
-- [Timer logic](https://github.com/VrickPL/PomidoroApp/tree/main?tab=readme-ov-file#timer-logic)
-- [Settings](https://github.com/VrickPL/PomidoroApp/tree/main?tab=readme-ov-file#settings)
+- [Used technologies and libraries](#used-technologies-and-libraries)
+- [Splash Screen](#splash-screen)
+- [Pomidoro](#pomidoro)
+- [Timer logic](#timer-logic)
+- [Settings](#settings)
 
 
 
